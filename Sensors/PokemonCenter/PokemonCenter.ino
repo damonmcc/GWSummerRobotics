@@ -6,12 +6,13 @@
  * 8-ohm speaker on digital pin 8
  * Momentary switch attached from pin 2 to ground
  * Built-in LED on pin 13
- * Photocell attached from VCC to pin 3
+ * Photocell pulled-down and attached from VCC to A3
  
  by Damon McCullough
  based on: "Melody"
  by Tom Igoe
  http://www.arduino.cc/en/Tutorial/Tone
+ and https://learn.adafruit.com/photocells/using-a-photocell
 */
  
 #include "pitches.h"
@@ -19,13 +20,13 @@
 
 // notes in Pokemon Center Theme:
 int melodyPCT[] = {
-  NOTE_A6, NOTE_A6,
-  NOTE_A6, NOTE_F6, NOTE_D7
+  NOTE_A7, NOTE_A7,
+  NOTE_A7, NOTE_F7, NOTE_D8
 };
 // note durations: 400 = quarter note, 800 = eighth note, etc.:
 int noteDurationsPCT[] = {
   400, 400,
-  800, 800, 400
+  800, 800, 264
 };
 const int lengthPCT = sizeof(melodyPCT) / sizeof(melodyPCT[0]);
 
@@ -45,7 +46,7 @@ void loop() {
   // logic is inverted. It goes HIGH when it's open,
   // and LOW when it's pressed. Turn on pin 13 when the
   // button's pressed, and off when it's not:
-  if (sensorVal > 300) {
+  if (sensorVal > 100) {
     digitalWrite(13, LOW);
   } else {
     digitalWrite(13, HIGH);
@@ -62,7 +63,7 @@ void playMelody(int melody[], int melodyDurations[], int melodyLength){
     // to calculate the note duration, take one second (or anything)
     // divided by the note type.
     // e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
-    int noteDuration = 120000 / melodyDurations[thisNote];
+    int noteDuration = 140000 / melodyDurations[thisNote];
     tone(8, melody[thisNote], noteDuration);
 
     // to distinguish the notes, set a minimum time between them.

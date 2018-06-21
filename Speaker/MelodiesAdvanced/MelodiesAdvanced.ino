@@ -102,6 +102,8 @@ void loop() {
     if (choiceNumber == 1){
       playMelody(melodyBHCT, noteDurationsBHCT, lengthBHCT); 
     }
+
+    // Update melody choice number
     if (choiceNumber < 2 ){
       choiceNumber++;
     }
