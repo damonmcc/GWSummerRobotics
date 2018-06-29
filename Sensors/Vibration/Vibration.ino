@@ -1,9 +1,9 @@
 /*
   Buttons
 
- Reads buttons on digital pins
+ Reads SW-520D vibration sensor
  Circuit:
- * Momentary switch attached from pin 2 to ground
+ * Vibration sensor attached from pin 2 to ground
  * Built-in LED on pin 13
  
  created 20 Jun 2018
@@ -12,7 +12,7 @@
  based on:
  Input Pullup Serial
 
- This example demonstrates the use of pinMode(INPUT_PULLUP). It reads a
+ This example demonstrates the use of pinMode(INPUT_DOWN). It reads a
  digital input on pin 2 and prints the results to the serial monitor.
 
  Unlike pinMode(INPUT), there is no pull-down resistor necessary. An internal
@@ -32,7 +32,7 @@ void setup() {
   //start serial connection
   Serial.begin(9600);
   //configure pin2 as an input and enable the internal pull-up resistor
-  pinMode(2, INPUT_PULLUP);
+  pinMode(2, INPUT_PULLDOWN);
   pinMode(13, OUTPUT);
 
 }
