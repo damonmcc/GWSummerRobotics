@@ -5,9 +5,9 @@
  * the result to the monitor and plotter in the Tools menu.
  * 
  * Circuit:
- *  Potentiometer connected to analog pin 0.
- *    Center pin goes to the analog pin.
- *    Side pins go to +5V and ground.
+ *  Potentiometer connected to analog pin 0
+ *    Center pin goes to the analog pin
+ *    Side pins go to +5V and ground
  *    
  * based on: ReadAnalogVoltage
  */

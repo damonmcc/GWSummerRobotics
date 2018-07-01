@@ -2,8 +2,8 @@
  * Blink Without Delay
  * 
  * Blinks an LED without using delay() function.
- * This means that other code can run at the same time
- * without being interrupted.
+ * This means that the loop can continue and 
+ * other code can run without being interrupted.
  * 
  * Circuit:
  *  Built-in LED on pin 13
@@ -32,15 +32,17 @@ void setup() {
 }
 
 void loop() {
-//   Check to see if it's time to blink the LED; that is, if the
-//   difference between the current time and last time you blinked
-//   the LED is bigger than the interval at which you want to
-//   blink the LED.
+//  Save the current time at the start of every loop
   unsigned long currentMillis = millis();
+  
 //  BONUS: Use a potentiometer (analog input) to set "interval"
 //  HINT: Use map() function to convert analog reading into an interval range
 //  www.arduino.cc/reference/en/language/functions/math/map/
 
+//   Check to see if it's time to blink the LED; that is, if the
+//   difference between the current time and last time you blinked
+//   the LED is bigger than the interval at which you want to
+//   blink the LED.
   if (currentMillis - previousMillis >= interval) {
     //    Save the last time you blinked the LED
     previousMillis = currentMillis;

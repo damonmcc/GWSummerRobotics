@@ -4,7 +4,7 @@
  * Reads buttons on digital pins
  * 
  * Circuit:
- *  Momentary switch attached from pin 2 to ground
+ *  Momentary switch from pin 2 to ground
  *  Built-in LED on pin 13
  *  
  * based on: Input Pullup Serial
@@ -19,6 +19,7 @@ void setup() {
   pinMode(13, OUTPUT);
   
 //  BONUS: use serial communication to debug the code
+//  https://www.arduino.cc/reference/en/language/functions/communication/serial/begin/
 //  Serial.begin(choose a baud rate);
 }
 
@@ -33,7 +34,7 @@ void loop() {
 //  logic is inverted. It goes HIGH when it's open,
 //  and LOW when it's pressed. Turn on pin 13 when the
 //  button's pressed, and off when it's not:
-  if (sensorVal == HIGH) {
+  if (sensorValue == HIGH) {
     digitalWrite(13, LOW);
   } else {
     digitalWrite(13, HIGH);
