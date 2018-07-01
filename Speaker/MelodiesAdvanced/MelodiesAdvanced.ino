@@ -1,20 +1,15 @@
 /*
-  Melodies
-
- Plays advanced melodies
- Circuit:
- * 8-ohm speaker on digital pin 8
- * Momentary switch attached from pin 2 to ground
- * Built-in LED on pin 13 
-
- by Damon McCullough
- based on: "Melody"
- by Tom Igoe
- http://www.arduino.cc/en/Tutorial/Tone
-*/
+ * Melodies
+ * 
+ * Plays advanced melodies
+ * 
+ * Circuit:
+ *  8-ohm speaker on digital pin 8
+ *  Momentary switch attached from pin 2 to ground
+ *  Built-in LED on pin 13 
+ */
  
 #include "pitches.h"
-
 
 // notes in Hedwig's Theme:
 // source: https://pianoletternotes.blogspot.com/2015/11/hedwigs-theme-harry-potter.html
@@ -88,10 +83,6 @@ void loop() {
   //read the pushbutton value into a variable
   int sensorVal = digitalRead(2);
 
-  // Keep in mind the pullup means the pushbutton's
-  // logic is inverted. It goes HIGH when it's open,
-  // and LOW when it's pressed. Turn on pin 13 when the
-  // button's pressed, and off when it's not:
   if (sensorVal == HIGH) {
     digitalWrite(13, LOW);
   } else {
@@ -115,7 +106,9 @@ void loop() {
 
 
 void playMelody(int melody[], int melodyDurations[], int melodyLength){
-  // iterate over the notes of the melody:
+  /*
+   * Plays an array of notes of given durations and total note count
+   */
   for (int thisNote = 0; thisNote < melodyLength; thisNote++) {
     // to calculate the note duration, take one second (or anything)
     // divided by the note type.

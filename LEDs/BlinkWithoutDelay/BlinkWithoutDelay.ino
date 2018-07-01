@@ -13,7 +13,7 @@
  */
 
 // Set pin number
-const int ledPin =  LED_BUILTIN;
+const int ledPin = LED_BUILTIN;
 
 // Used to set the LED
 int ledState = LOW;        
