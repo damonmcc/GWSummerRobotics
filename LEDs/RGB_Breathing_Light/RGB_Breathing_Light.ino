@@ -23,15 +23,17 @@
  *
  * [Title]:   RGB breathing light
  * [Diagram]
- *         Arduino PIN 11   ===================  RGB pin1 red
+ *         Arduino PIN 9   ===================  RGB pin1 red
  *         Arduino PIN 10  ===================   RGB pin3 green
- *         Arduino PIN 9  ===================    RGB pin4 blue
- *         Arduino GND     ===================   RGB pin2  GND
+ *         Arduino PIN 11  ===================    RGB pin4 blue
+ *         Arduino 5V     ===================   RGB pin2  5V
  *
  */
-#define RGB_RED    9
-#define RGB_GREEN  10
-#define RGB_BLUE   11
+#define RGB_RED    8
+#define RGB_GREEN  9
+#define RGB_BLUE   10
+
+int fadeDelay = 20;
 
 void setup()
 {
@@ -53,21 +55,22 @@ void loop()
     for (i=0; i<256; i++)
     {
         setColor(i, 0, 0);
-        delay(4);
+        delay(fadeDelay);
     }
-    delay(500);           //turn the RGB LED red smoth
+    delay(500);           //turn the RGB LED red smoothly
 
     for (i=0; i < 256; i++)
     {
         setColor(0, i, 0);
-        delay(4);
+        delay(fadeDelay);
     }
-    delay(500);           //turn the RGB LED green smoth
+    delay(500);           //turn the RGB LED green smoothly
 
     for (i=0; i < 256; i++)
     {
         setColor(0, 0, i);
-        delay(4);
+        delay(fadeDelay);
+        // BONUS: make blue fade off smoothly
     }
-    delay(100);           //turn the RGB LED blue smoth
+    delay(500);           //turn the RGB LED blue smoothly
 }
